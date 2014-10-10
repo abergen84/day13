@@ -34,7 +34,22 @@ console.log(phones);
 
 function ForEach(list, callback) {
     for (var i = 0; i < list.length; i++) {
-        callback(list[i], i);
+        callback(list[i], i); 
     }
+   list.map function(c)
 }
+
+function map(list, transform) {
+    var mapped = [];
+    for (var i = 0; i < list.length; i++)
+        mapped.push(transform(list[i]));
+    return mapped;
+}
+
+
+
+
+
+
+
 
