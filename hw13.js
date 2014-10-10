@@ -39,6 +39,7 @@ function ForEach(list, callback) {
    list.map function(c)
 }
 
+
 function map(list, transform) {
     var mapped = [];
     for (var i = 0; i < list.length; i++)
@@ -48,7 +49,4 @@ function map(list, transform) {
 
 
 //testing
-
-
-
 
