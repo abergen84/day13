@@ -32,22 +32,59 @@ var phones = [{
 
 console.log(phones);
 
-function ForEach(list, callback) {
-    for (var i = 0; i < list.length; i++) {
-        callback(list[i], i); 
+function ForEach(array, callback) {
+    for (var i = 0; i < array.length; i++) {
+        callback(array[i], i);
     }
-   list.map function(c)
+}
+
+function ForEachFilter(array, key, value) {
+    "use strict";
+
+    var list = [];
+
+    ForEach(array, function(x) {
+        if (x[key] === value) {
+            list.push(x);
+        }
+    })
+    return list;
 }
 
 
-function map(list, transform) {
-    var mapped = [];
-    for (var i = 0; i < list.length; i++)
-        mapped.push(transform(list[i]));
-    return mapped;
-}
+
+// function ForEachFilter(a){
+// 	"use strict";
+
+// 	var list = [];
+
+// 	ForEach(array, function(x){
+// 		if (x.brand === a){
+// 			list.push(x);
+// 		}
+// 	})
+// 	return list;
+// }
 
 
 
 
 
+
+
+
+// .filter(function(x){
+// 	return x.brand === "Apple";
+// });
+
+
+
+
+//console.log(phones);
+
+// function map(list, transform) {
+//     var mapped = [];
+//     for (var i = 0; i < list.length; i++)
+//         mapped.push(transform(list[i]));
+//     return mapped;
+// }
