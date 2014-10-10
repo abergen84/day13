@@ -52,7 +52,6 @@ function ForEachFilter(array, key, value) {
 }
 
 
-
 // function ForEachFilter(a){
 // 	"use strict";
 
@@ -68,23 +67,4 @@ function ForEachFilter(array, key, value) {
 
 
 
-
-
-
-
-
-// .filter(function(x){
-// 	return x.brand === "Apple";
-// });
-
-
-
-
 //console.log(phones);
-
-// function map(list, transform) {
-//     var mapped = [];
-//     for (var i = 0; i < list.length; i++)
-//         mapped.push(transform(list[i]));
-//     return mapped;
-// }
