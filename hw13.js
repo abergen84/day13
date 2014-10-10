@@ -38,3 +38,4 @@ function ForEach(list, callback) {
     }
 }
 
+//Test
