@@ -32,24 +32,41 @@ var phones = [{
 
 console.log(phones);
 
-function ForEach(array, callback) {
+function forEach(array, callback) {
     for (var i = 0; i < array.length; i++) {
         callback(array[i], i);
     }
 }
 
-function ForEachFilter(array, key, value) {
+function forEachFilter(array, key, value) {
     "use strict";
 
     var list = [];
 
-    ForEach(array, function(x) {
+    forEach(array, function(x) {
         if (x[key] === value) {
             list.push(x);
         }
     })
-    return list;
-}
+    return list
+
+
+    .map(function(x){
+
+    	return { Description: x.brand + " " + x.model + " in the color " + x.color };
+    
+    });
+    // forEach(array, function(x) {
+    //     list.map(x);
+    // })
+
+    //return { Description: x.brand };
+
+		
+
+	};
+
+
 
 
 // function ForEachFilter(a){
@@ -64,6 +81,12 @@ function ForEachFilter(array, key, value) {
 // 	})
 // 	return list;
 // }
+
+//function ForEachMap(){
+
+
+
+
 
 
 
