@@ -35,18 +35,28 @@ console.log(phones);
 function ForEach(list, callback) {
     for (var i = 0; i < list.length; i++) {
         callback(list[i], i); 
+        for (map.)
+   var a = list.filter.
     }
-   list.map function(c)
 }
 
+// function filter(list, test) {
+//     var passed = [];
+//     for (var i = 0; i < array.length; i++) {
+//         if (test (list[i])
+//         passed.push(list[i]);    
+//     }
+//     return passed;
+// }
 
-function map(list, transform) {
-    var mapped = [];
-    for (var i = 0; i < list.length; i++)
-        mapped.push(transform(list[i]));
-    return mapped;
-}
+
+// function map(list, transform) {
+//     var mapped = [];
+//     for (var i = 0; i < list.length; i++)
+//         mapped.push(transform(list[i]));
+//     return mapped;
+// }
 
 
-//testing
+
 
