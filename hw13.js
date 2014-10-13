@@ -119,7 +119,7 @@ function rejectSimple(list, predicate) {
 	var array = [];
 
 	list.forEach(function(x) {
-		if ((x % 2 == 0) != ~~predicate){
+		if ((x % 2) != ~~predicate){
 
 			array.push(x);
 		}
@@ -127,6 +127,7 @@ function rejectSimple(list, predicate) {
 
 	return array;
 };
+
 
 
 //Reject Function for the Phones Array at the top
