@@ -147,20 +147,33 @@ function reject(array, predicate, value){
 };
 
 
-// function ForEachFilter(a){
+//Find function
+function find(list, predicate) {
+	"use strict";
+
+	var x = list;
+
+	for(var i = 0; i < list.length; i++) { 
+		if ((x % 2) == ~~predicate){
+			return x;
+		}
+	}
+
+};
+
+
+// function find(list, predicate) {
 // 	"use strict";
 
-// 	var list = [];
+// 	var array = [];
 
-// 	ForEach(array, function(x){
-// 		if (x.brand === a){
-// 			list.push(x);
+// 	list.forEach(function(x) { 
+// 		if ((x % 2) == ~~predicate){
+// 			return x;
 // 		}
 // 	})
-// 	return list;
-// }
 
-//function ForEachMap(){
+// };
 
 
 
@@ -168,4 +181,3 @@ function reject(array, predicate, value){
 
 
 
-//console.log(phones);
