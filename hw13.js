@@ -74,25 +74,103 @@ function forEachFilter(array, key, value) {
             list.push(x);
         }
     })
+
     return list
 
 
-    .map(function(x){
+        .map(function(x) {
 
-    	return { Description: x.brand + " " + x.model + " in the color " + x.color };
-    
+        return {
+            Description: x.brand + " " + x.model + " in the color " + x.color
+        };
+
     });
-    // forEach(array, function(x) {
-    //     list.map(x);
-    // })
 
-    //return { Description: x.brand };
+};
 
-		
+// forEach(array, function(x) {
+//      list.map(x);
+//  })
 
-	};
+//  return { Description: x.brand };
+
+var stooges = [{
+	name: "Moe",
+	age: 48
+}, {
+	name: "Larry",
+	age: 50
+}, {
+	name: "Curly",
+	age: 60
+}];
+
+//Pluck Function for the Stooges example
+function pluckSimple(list, propertyName) {
+
+	var array = [];
+
+	list.forEach(function(x) {
+
+			array.push(x[propertyName]);
+
+	})
+
+	return array;
+}
 
 
+//Pluck Function for the Phones Array at the top
+function pluck(array, propertyName1, value){
+	"use strict";
+
+	var list = [];
+
+	array.forEach(function(x) {
+		if (x[propertyName1] === value){
+
+			list.push(x);
+		}
+	})
+
+	return list;
+
+};
+
+//Reject Function for the Numbers example
+var numbers = [1,2,3,4,5,6,7,8,9];
+
+function rejectSimple(list, predicate) {
+
+	var array = [];
+
+	list.forEach(function(x) {
+		if ((x % 2) != ~~predicate){
+
+			array.push(x);
+		}
+	})
+
+	return array;
+};
+
+
+
+//Reject Function for the Phones Array at the top
+function reject(array, predicate, value){
+	"use strict";
+
+	var list = [];
+
+	array.forEach(function(x) {
+		if (x[predicate] != value){
+
+			list.push(x);
+		}
+	})
+
+	return list; 
+};
 
 
 // function ForEachFilter(a){
