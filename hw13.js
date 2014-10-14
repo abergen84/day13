@@ -32,35 +32,9 @@ var phones = [{
 
 console.log(phones);
 
-<<<<<<< HEAD
-function ForEach(list, callback) {
-    for (var i = 0; i < list.length; i++) {
-        callback(list[i], i); 
-        for (map.)
-   var a = list.filter.
-    }
-}
-
-// function filter(list, test) {
-//     var passed = [];
-//     for (var i = 0; i < array.length; i++) {
-//         if (test (list[i])
-//         passed.push(list[i]);    
-//     }
-//     return passed;
-// }
-
-
-// function map(list, transform) {
-//     var mapped = [];
-//     for (var i = 0; i < list.length; i++)
-//         mapped.push(transform(list[i]));
-//     return mapped;
-// }
-=======
 function forEach(array, callback) {
     for (var i = 0; i < array.length; i++) {
-        callback(array[i], i);
+        callback(array[i], i, array);
     }
 }
 
@@ -75,136 +49,190 @@ function forEachFilter(array, key, value) {
         }
     })
 
-    return list
+    return list;
+};
 
 
-        .map(function(x) {
+function forEachMap(array, callback) {
+    "use strict";
 
-        return {
-            Description: x.brand + " " + x.model + " in the color " + x.color
-        };
+    var list = [];
 
-    });
+    forEach(array, function(val, i, arr) {
+
+        list.push(callback(val, i, arr));
+
+    })
+
+    return list;
+    //        return { Description: val.brand + " " + val.model + " in the color " + val.color }
 
 };
 
-// forEach(array, function(x) {
-//      list.map(x);
-//  })
 
-//  return { Description: x.brand };
+function forEachReduce(array, callback, initialValue) {
+    "use strict";
+
+    forEach(array, function(prev, cur, i, arr) {
+
+        return prev + cur;
+    })
+
+};
+
 
 var stooges = [{
-	name: "Moe",
-	age: 48
+    name: "Moe",
+    age: 48
 }, {
-	name: "Larry",
-	age: 50
+    name: "Larry",
+    age: 50
 }, {
-	name: "Curly",
-	age: 60
+    name: "Curly",
+    age: 60
 }];
 
 //Pluck Function for the Stooges example
 function pluckSimple(list, propertyName) {
 
-	var array = [];
+    var array = [];
 
-	list.forEach(function(x) {
+    list.forEach(function(val, i, arr) {
 
-			array.push(x[propertyName]);
+        array.push(val[propertyName]);
 
-	})
+    })
 
-	return array;
+    return array;
 }
 
 
 //Pluck Function for the Phones Array at the top
-function pluck(array, propertyName1, value){
-	"use strict";
+function pluck(array, propertyName, value) {
+    "use strict";
 
-	var list = [];
+    var list = [];
 
-	array.forEach(function(x) {
-		if (x[propertyName1] === value){
+    array.forEach(function(x) {
+        if (x[propertyName] === value) {
 
-			list.push(x);
-		}
-	})
+            list.push(x);
+        }
+    })
 
-	return list;
+    return list;
 
 };
 
 //Reject Function for the Numbers example
-var numbers = [1,2,3,4,5,6,7,8,9];
+var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-function rejectSimple(list, predicate) {
-
-	var array = [];
-
-	list.forEach(function(x) {
-		if ((x % 2) != ~~predicate){
-
-			array.push(x);
-		}
-	})
-
-	return array;
-};
-
-
-
-//Reject Function for the Phones Array at the top
-function reject(array, predicate, value){
-	"use strict";
-
-	var list = [];
-
-	array.forEach(function(x) {
-		if (x[predicate] != value){
-
-			list.push(x);
-		}
-	})
-
-	return list; 
-};
-
-
-//Find function
-function find(list, predicate) {
-	"use strict";
-
-	var x = list;
-
-	for(var i = 0; i < list.length; i++) { 
-		if ((x % 2) == ~~predicate){
-			return x;
-		}
-	}
-
-};
-
-
-// function find(list, predicate) {
-// 	"use strict";
+// function rejectSimple(list, predicate) {
 
 // 	var array = [];
 
-// 	list.forEach(function(x) { 
-// 		if ((x % 2) == ~~predicate){
-// 			return x;
+// 	list.forEach(function(x) {
+// 		if ((x % 2) != ~~predicate){
+
+// 			array.push(x);
 // 		}
 // 	})
 
+// 	return array;
 // };
 
+function rejectSimple(list, predicate) {
+
+    var array = [];
+
+    list.forEach(function(x) {
+        if (!predicate(x)) {
+            array.push(x)
+        }
+    })
+
+    return array;
+};
+
+console.log(
+    rejectSimple(numbers, function(val) {
+        return val % 2 === 0;
+    })
+)
+
+console.log(
+    rejectSimple(numbers, function(val) {
+        return val <= 7 && val >= 3;
+    })
+)
+
+//Reject Function for the Phones Array at the top
+function reject(array, predicate, value) {
+    "use strict";
+
+    var list = [];
+
+    array.forEach(function(x) {
+        if (x[predicate] != value) {
+
+            list.push(x);
+        }
+    })
+
+    return list;
+};
+
+//Find function
+function find(list, predicate) {
+        "use strict";
+
+        var result;
+
+        forEach(list, function(element, i, arr) {
+            if (predicate(element)) {
+                result += element;
+            }
+        })
+
+        return result;
 
 
->>>>>>> 98c04fc067768d0344fff859dec77abc9cb9168e
+        // function find(list, predicate) {
+        // 	"use strict";
+
+        // 	var array = [];
+
+        // 	list.forEach(function(x) { 
+        // 		if ((x % 2) == ~~predicate){
+        // 			return x;
+        // 		}
+        // 	})
+
+        // };
 
 
+        var listOfPlays = [{
+            title: "Cymbeline",
+            author: "Shakespeare",
+            year: 1611
+        }, {
+            title: "The Tempest",
+            author: "Shakespeare",
+            year: 1611
+        }];
 
+        console.log(listOfPlays);
 
+        function where(list, properties) {
+            "use strict";
+
+            var empty = [];
+
+            forEach(list, function(val, i, arr) {
+                if (properties === ) {
+                    empty.push(val)
+                }
+            })
+
+            return empty;
+        }
